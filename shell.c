@@ -19,7 +19,7 @@ int main(void)
         char *s;
         int len;
         
-        printf("MyShell $ ");
+        printf("Myshell file name :  ");
         s = fgets(command, MAX_LEN_LINE, stdin);
         if (s == NULL) {
             fprintf(stderr, "fgets failed\n");
@@ -27,12 +27,12 @@ int main(void)
         }
         
         len = strlen(command);
-        printf("%d\n", len);
+        printf("The number of strings in the file name is %d, so this is a viable situation. Run it.\n", len);
         if (command[len - 1] == '\n') {
             command[len - 1] = '\0'; 
         }
         
-        printf("[%s]\n", command);
+        printf("Name of file to run : [%s]\n", command);
       
         pid = fork();
         if (pid < 0) {
@@ -46,8 +46,10 @@ int main(void)
             }
             printf("Child process terminated\n");
             if (WIFEXITED(status)) {
-                printf("Exit status is %d\n", WEXITSTATUS(status)); 
-            }
+                printf("Exit status is %d\n", WEXITSTATUS(status)); 	
+            return 0;
+	     
+	     	    }
         }
         else {  /* child */
             ret = execve(args[0], args, NULL);
