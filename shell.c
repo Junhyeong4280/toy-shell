@@ -19,7 +19,7 @@ int main(void)
         char *s;
         int len;
         
-        printf("Myshell file name :  ");
+        printf("Myshell file name\n(ex: calculator,iteminventor,oedistributor) :  ");
         s = fgets(command, MAX_LEN_LINE, stdin);
         if (s == NULL) {
             fprintf(stderr, "fgets failed\n");
@@ -60,4 +60,5 @@ int main(void)
         } 
     }
     return 0;
+
 }
